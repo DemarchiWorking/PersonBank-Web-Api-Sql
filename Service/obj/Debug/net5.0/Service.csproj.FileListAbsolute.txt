@@ -1,0 +1,12 @@
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\bin\Debug\net5.0\Service.deps.json
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\bin\Debug\net5.0\Service.dll
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\bin\Debug\net5.0\ref\Service.dll
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\bin\Debug\net5.0\Service.pdb
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\obj\Debug\net5.0\Service.csproj.AssemblyReference.cache
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\obj\Debug\net5.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\obj\Debug\net5.0\Service.AssemblyInfoInputs.cache
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\obj\Debug\net5.0\Service.AssemblyInfo.cs
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\obj\Debug\net5.0\Service.csproj.CoreCompileInputs.cache
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\obj\Debug\net5.0\Service.dll
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\obj\Debug\net5.0\ref\Service.dll
+C:\Users\AntonioEduardo\source\repos\TargetInvestimento\Service\obj\Debug\net5.0\Service.pdb
