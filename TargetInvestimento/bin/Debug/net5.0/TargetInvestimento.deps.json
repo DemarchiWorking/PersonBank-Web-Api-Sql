@@ -34,6 +34,7 @@
       "TargetInvestimento/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "CPFCNPJ": "2.0.5",
           "Domain": "1.0.0",
           "Oracle.ManagedDataAccess": "21.5.0",
           "Swashbuckle.AspNetCore": "5.6.3",
@@ -323,6 +324,17 @@
           "TargetInvestimento.dll": {}
         }
       },
+      "CPFCNPJ/2.0.5": {
+        "runtime": {
+          "lib/netcoreapp3.1/CPFCNPJ.dll": {
+            "assemblyVersion": "2.0.5.0",
+            "fileVersion": "2.0.5.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/CPFCNPJ.dll": {}
+        }
+      },
       "Dapper/2.0.123": {
         "runtime": {
           "lib/net5.0/Dapper.dll": {
@@ -337,7 +349,7 @@
       "Microsoft.AspNet.WebApi.Client/4.0.20710": {
         "dependencies": {
           "Microsoft.Net.Http": "2.0.20710",
-          "Newtonsoft.Json": "7.0.1"
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "lib/net40/System.Net.Http.Formatting.dll": {
@@ -427,15 +439,15 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
-      "Newtonsoft.Json/7.0.1": {
+      "Newtonsoft.Json/13.0.1": {
         "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.1.18622"
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
           }
         },
         "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "Oracle.ManagedDataAccess/21.5.0": {
@@ -536,7 +548,7 @@
       "Swashbuckle.Core/5.6.0": {
         "dependencies": {
           "Microsoft.AspNet.WebApi.Core": "4.0.20710",
-          "Newtonsoft.Json": "7.0.1"
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "lib/net40/Swashbuckle.Core.dll": {
@@ -641,7 +653,8 @@
       "Application/1.0.0": {
         "dependencies": {
           "Domain": "1.0.0",
-          "Infrastructure": "1.0.0"
+          "Infrastructure": "1.0.0",
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "Application.dll": {}
@@ -2346,6 +2359,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "CPFCNPJ/2.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pXpJZczdf0oJACwSwFgox1El3UrKyDdLNbDucs3natbvPCK1gQGGHPr9fIC5Iui2sWPHBSarIq/xZKoBHc6+SQ==",
+      "path": "cpfcnpj/2.0.5",
+      "hashPath": "cpfcnpj.2.0.5.nupkg.sha512"
+    },
     "Dapper/2.0.123": {
       "type": "package",
       "serviceable": true,
@@ -2430,12 +2450,12 @@
       "path": "microsoft.win32.registry/4.7.0",
       "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
     },
-    "Newtonsoft.Json/7.0.1": {
+    "Newtonsoft.Json/13.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
-      "path": "newtonsoft.json/7.0.1",
-      "hashPath": "newtonsoft.json.7.0.1.nupkg.sha512"
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
     },
     "Oracle.ManagedDataAccess/21.5.0": {
       "type": "package",

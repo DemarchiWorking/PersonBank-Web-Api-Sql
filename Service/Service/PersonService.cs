@@ -2,7 +2,10 @@
 using Domain.Model.Request;
 using Domain.Model.Response;
 using Infrastructure.Repository.Interfaces;
+using Newtonsoft.Json;
 using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Application.Service
 {
@@ -38,5 +41,7 @@ namespace Application.Service
             }
             return null;
         }
+
+
     }
 }

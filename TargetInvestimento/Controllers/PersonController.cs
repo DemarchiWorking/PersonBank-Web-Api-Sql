@@ -32,6 +32,29 @@ namespace TargetInvestimento.Controllers
         {
             try
             {
+                if (string.IsNullOrEmpty(physicalPersonRequest.FullName))
+                {
+                    return BadRequest(new Response()
+                    {
+                        Title = "Informe o nome completo do usuário!"
+                    });
+                }
+                if (string.IsNullOrEmpty(physicalPersonRequest.Cpf))
+                {
+                    return BadRequest(new Response()
+                    {
+                        Title = "Informe o CPF do usuário!"
+                    });
+                }
+                CPFCNPJ.IMain checkCpfCnpj = new CPFCNPJ.Main();
+                if (!checkCpfCnpj.IsValidCPFCNPJ(physicalPersonRequest.Cpf))
+                {
+                    return BadRequest(new Response()
+                    {
+                        Title = "Informe um CPF válido!"
+                    });
+                }
+
                 var response = _personService.PostPhysicalPerson(physicalPersonRequest);
 
                 if (response?.Registered == true)
@@ -69,6 +92,5 @@ namespace TargetInvestimento.Controllers
               });
 
         }
- 
     }
 }

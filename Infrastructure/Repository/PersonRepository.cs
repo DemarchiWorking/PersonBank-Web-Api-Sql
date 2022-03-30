@@ -12,15 +12,12 @@ namespace Infrastructure.Repository
     public class PersonRepository : IPersonRepository
     {
         private readonly string _connectionString;
-        //private readonly IDbConnection _dbConnection;
 
         public PersonRepository
             (
-               // IDbConnection dbConnection,
                 IConfiguration configuration
             )
         {
-               // _dbConnection = dbConnection;
                 _connectionString = configuration.GetConnectionString("DatabaseConnectionString");
         }
         public Response PostPhysicalPerson(PhysicalPersonRequest physicalPersonRequest, bool vipPlan)
@@ -79,19 +76,6 @@ namespace Infrastructure.Repository
                         Registered = false
                     };
                 }
-
-                /*
-                if (dbQuery > 0)
-                    return new Response()
-                    {
-                        Registered = true,
-                        VipPlan = vipPlan
-                    };
-                else
-                    return new Response()
-                    {
-                        Registered = false
-                    };*/
             }
             catch (Exception e)
             {
