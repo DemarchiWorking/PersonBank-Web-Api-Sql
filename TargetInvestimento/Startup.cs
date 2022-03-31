@@ -37,8 +37,10 @@ namespace TargetInvestimento
 
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<ILocalizationService, LocalizationService>();
+            services.AddScoped<IPlanService, PlanService>();
 
             services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IPlanRepository, PlanRepository>();
 
 
         }

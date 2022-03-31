@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yy7laJksPbMqtHAHspUQZP+fTWH1c02Yz+dHS6jbnENBZaklURyE7qrE53g+gRUPmaJeZwN+GXpQRQ4RtCV9OA==",
+  "dgSpecHash": "9/fPm/whE0rC4gPthUSkDgHyiDcggF60KFHh4feQ1xvtmccgW3qrTpQ6LCrd2riTiYbNPDjwsh2lgfUH5Q1mww==",
   "success": true,
   "projectFilePath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestimento\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\AntonioEduardo\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\AntonioEduardo\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\AntonioEduardo\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"

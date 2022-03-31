@@ -25,13 +25,13 @@ namespace Application.Service
         {
             try
             {
-                bool pipPlan = false;
+                bool vipPlan = false;
                 if (physicalPersonRequest.MonthlyIncome >= 6000)
                 {
-                    pipPlan = true;
+                    vipPlan = true;
                 }
 
-                var personResponse = _personRepository.PostPhysicalPerson(physicalPersonRequest, pipPlan);
+                var personResponse = _personRepository.PostPhysicalPerson(physicalPersonRequest, vipPlan);
                 return personResponse;
 
             }

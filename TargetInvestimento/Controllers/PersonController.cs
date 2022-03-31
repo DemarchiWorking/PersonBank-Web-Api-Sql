@@ -24,7 +24,7 @@ namespace TargetInvestimento.Controllers
             //_logger = logger;
         }
 
-        [HttpPost("create")]
+        [HttpPost("create-person")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
