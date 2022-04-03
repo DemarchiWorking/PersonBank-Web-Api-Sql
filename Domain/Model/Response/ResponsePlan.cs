@@ -11,9 +11,10 @@ namespace Domain.Model.Response
     {
         public string Title { get; set; }
 
-        public List<Plan> Plans {get; set;}
+        public List<Plan> Plans { get; set; }
         public int Status { get; set; }
         public bool IsReturned { get; set; }
 
     }
 }
+

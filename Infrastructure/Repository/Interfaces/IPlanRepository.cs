@@ -8,9 +8,14 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repository.Interfaces
 {
+    
     public interface IPlanRepository
     {
         ResponsePlan GetAllPlans();
         ResponseConfirmVip ConfirmVipPlan(int idUsuario);
+        public bool AlreadyExists(int idUsuario);
+
+
+
     }
 }

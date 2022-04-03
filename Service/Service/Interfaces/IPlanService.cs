@@ -2,13 +2,16 @@
 using Domain.Model.Response;
 using System.Threading.Tasks;
 
+
 namespace Application.Service.Interfaces
 {
-    public interface IPlanService
-    {
-        ResponsePlan GetAllPlans();
+public interface IPlanService
+{
+ResponsePlan GetAllPlans();
 
-        ResponseConfirmVip ConfirmVipPlan(int idUsuario);
+ResponseConfirmVip ConfirmVipPlan(int idUsuario);
 
-    }
+
 }
+}
+ 

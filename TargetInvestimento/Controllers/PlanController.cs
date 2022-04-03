@@ -2,6 +2,7 @@
 using Domain.Model.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 using System;
 using System.Threading.Tasks;
 
@@ -11,16 +12,21 @@ namespace TargetInvestimento.Controllers
     [ApiController]    
     public class PlanController : ControllerBase
     {
+        private readonly ILogger _logger;
         private readonly IPlanService _planService;
 
 
         public PlanController(
+ 
+            ILogger logger,
             IPlanService planService
             )
         {
+            _logger = logger;
             _planService = planService;
         }
 
+        
         /// <summary>
         /// Endpoint responsável por retornar planos.
         /// </summary>
@@ -57,15 +63,15 @@ namespace TargetInvestimento.Controllers
 
                 if (response?.IsReturned == false)
                 {
-                    return Ok(new ResponseLocalization()
+                    return Ok(new ResponseLocalizationStates()
                     {
                         IsReturned = false                       
                     });
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine("[PlanController] Exception in GetAllPlans!");
+                _logger.Error(ex, $"[PlanController] Exception in GetAllPlans!");
             }
 
             return StatusCode(500, new Response()
@@ -89,9 +95,10 @@ namespace TargetInvestimento.Controllers
                 {
                     return Ok(new ResponseConfirmVip()
                     {
+                        
                         IsReturned = true,
                         Status = 200,
-                        Title = "O usuário foi cadastrado na lista de Planos vip!"
+                        Title = response.Title
                     });
                 }
                 if (response?.IsReturned == false)
@@ -100,30 +107,34 @@ namespace TargetInvestimento.Controllers
                     {
                         Status = 400,
                         IsReturned = false,
-                        Title = "Não foi possivel cadastrar o usuario na lista de planos vip."
+                        Title = response.Title
                         
                     });
                 }
-
                 else
                 {
-                    return BadRequest(new Response()
+                    return BadRequest(new ResponseConfirmVip()
                     {
-                        Registered = false
+                        IsReturned = false,
+                        Status = 400,
+                        Title = "Não foi possivel cadastrar o usuario na lista de planos vip."
                     });
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("[PersonController] Exception in PostPhysicalPerson!");
+                _logger.Error(ex, $"[PlanController] Exception in ConfirmVipPlan!");
             }
             return StatusCode(StatusCodes.Status500InternalServerError,
-              new Response()
+              new ResponseConfirmVip()
               {
-                  Registered = false
+                  IsReturned = false,
+                  Status = 500,
+                  Title = "Internal Error"
               });
 
         }
-
+        
+        
     }
 }

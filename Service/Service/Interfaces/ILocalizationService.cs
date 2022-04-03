@@ -6,8 +6,8 @@ namespace Application.Service.Interfaces
 {
     public interface ILocalizationService
     {
-        Task<ResponseLocalization> GetClientApiState(string url, string getParam);
+        Task<ResponseLocalizationStates> GetClientApiState(string url, string getParam);
 
-        Task<ResponseLocalizationFilter> GetClientApiCity(string url, string request,string getParam);
+        Task<ResponseLocalizationAddressByState> GetClientApiCity(string url, string request,string getParam);
     }
 }

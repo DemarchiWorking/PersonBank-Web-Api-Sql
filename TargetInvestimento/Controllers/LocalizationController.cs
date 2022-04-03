@@ -1,6 +1,8 @@
 ﻿using Application.Service.Interfaces;
+using Domain.Model.Request;
 using Domain.Model.Response;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 using System;
 using System.Threading.Tasks;
 
@@ -10,13 +12,16 @@ namespace TargetInvestimento.Controllers
     [ApiController]    
     public class LocalizationController : ControllerBase
     {
+        private readonly ILogger _logger;
         private readonly ILocalizationService _localizationService;
 
 
         public LocalizationController(
+            ILogger logger,
             ILocalizationService localizationService
             )
         {
+            _logger = logger;
             _localizationService = localizationService;
         }
 
@@ -36,7 +41,7 @@ namespace TargetInvestimento.Controllers
 
                 if (response?.IsReturned == true)
                 {
-                    return Ok(new ResponseLocalization()
+                    return Ok(new ResponseLocalizationStates()
                     {
                         States = response.States,
                         Status = 200,
@@ -46,7 +51,7 @@ namespace TargetInvestimento.Controllers
                 }
                 if (response?.IsReturned == false)
                 {
-                    return BadRequest(new ResponseLocalization()
+                    return BadRequest(new ResponseLocalizationStates()
                     {
                         IsReturned = false,
                         Status = 400,
@@ -56,15 +61,15 @@ namespace TargetInvestimento.Controllers
 
                 if (response?.IsReturned == false)
                 {
-                    return Ok(new ResponseLocalization()
+                    return Ok(new ResponseLocalizationStates()
                     {
                         IsReturned = false                       
                     });
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine("[LocalizationController] Exception in GetAllStateBrazil!");
+                _logger.Error(ex, $"[LocalizationController] Exception in GetAllStateBrazil!");
             }
 
             return StatusCode(500, new Response()
@@ -83,21 +88,18 @@ namespace TargetInvestimento.Controllers
         [ProducesResponseType(typeof(Response), 200)]
         [ProducesResponseType(typeof(Response), 404)]
         [ProducesResponseType(typeof(Response), 500)]
-        public async Task<IActionResult> GetAllCity(string request)
+        public async Task<IActionResult> GetAllCity([FromBody] UfRequest ufRequest)
         {
             try
             {
-                //var param = "localidades/estados/{request}/distritos/";
-                //param = param.Replace("{request}", request.ToString());
-               
-
-                var response = await _localizationService.GetClientApiCity("https://servicodados.ibge.gov.br/api/v1/", request,"localidades/estados/{request}/distritos/");
+                var response = await _localizationService.GetClientApiCity("https://servicodados.ibge.gov.br/api/v1/", ufRequest.idUf, "localidades/estados/{request}/distritos/");
 
                 if (response?.IsReturned == true)
                 {
-                    return Ok(new ResponseLocalizationFilter()
+                    return Ok(new ResponseLocalizationAddressByState()
                     {
                         AddressByState = response.AddressByState,
+                        CountyByState = response.CountyByState,
                         Status = 200,
                         IsReturned = true,
                         Title = "Lista de Endereços por estado localizada com sucesso!"
@@ -105,7 +107,7 @@ namespace TargetInvestimento.Controllers
                 }
                 if (response?.IsReturned == false)
                 {
-                    return BadRequest(new ResponseLocalization()
+                    return BadRequest(new ResponseLocalizationStates()
                     {
                         IsReturned = false,
                         Status = 400,
@@ -115,15 +117,15 @@ namespace TargetInvestimento.Controllers
 
                 if (response?.IsReturned == false)
                 {
-                    return Ok(new ResponseLocalization()
+                    return Ok(new ResponseLocalizationStates()
                     {
                         IsReturned = false
                     });
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Console.WriteLine("[LocalizationController] Exception in GetAllCity!");
+                _logger.Error(ex, $"[LocalizationController] Exception in GetAllCity!");
             }
 
             return StatusCode(500, new Response()

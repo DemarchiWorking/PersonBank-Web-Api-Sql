@@ -4,8 +4,10 @@ using Domain.Model.Request;
 using Domain.Model.Response;
 using Infrastructure.Repository.Interfaces;
 using Newtonsoft.Json;
+using Serilog;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -13,28 +15,28 @@ namespace Application.Service
 {
     public class LocalizationService : ILocalizationService
     {
-        public LocalizationService()
+
+        private readonly ILogger _logger;
+        public LocalizationService(
+            ILogger logger
+            )
         {
-           
+            _logger = logger;
         }
 
-        public async Task<ResponseLocalization> GetClientApiState(string url, string getParam)
+        public async Task<ResponseLocalizationStates> GetClientApiState(string url, string getParam)
         {
             try
             {
                 HttpClient client = new HttpClient { BaseAddress = new Uri(url) };
                 var response = await client.GetAsync(getParam);
-                var content = response.Content.ReadAsStringAsync();
-                Console.WriteLine(content.ToString());
-                Console.WriteLine(content.Result.ToString());
-                Console.WriteLine(content.Result.ToString());
-                Console.WriteLine(content.Result.ToString());
+                var content = response.Content.ReadAsStringAsync();            
                 var states = JsonConvert.DeserializeObject<List<State>>(content.Result);
-                //Console.WriteLine(states);
+                
 
                 if (response != null)
                 {
-                    return new ResponseLocalization()
+                    return new ResponseLocalizationStates()
                     {
                         States = states,
                         Status = 200,
@@ -43,7 +45,7 @@ namespace Application.Service
                 }
                 else
                 {
-                    return new ResponseLocalization()
+                    return new ResponseLocalizationStates()
                     {
                         IsReturned = false
                     };
@@ -51,13 +53,13 @@ namespace Application.Service
             }
             catch (Exception ex)
             {
-                Console.WriteLine("[LocalizationService] Exception in GetClientApi!");
+                _logger.Error(ex, $"[LocalizationService] Exception in GetClientApiState!");
             }
             return null;
 
         }
 
-        public async Task<ResponseLocalizationFilter> GetClientApiCity(string url, string request,string getParam)
+        public async Task<ResponseLocalizationAddressByState> GetClientApiCity(string url, string request,string getParam)
         {
             try
             {
@@ -66,31 +68,36 @@ namespace Application.Service
                 HttpClient client = new HttpClient { BaseAddress = new Uri(url) };
                 var response = await client.GetAsync(param);
                 var content = response.Content.ReadAsStringAsync();
-                Console.WriteLine(content.ToString());
-                Console.WriteLine(content.Result.ToString());
-                Console.WriteLine(content.Result.ToString());
-                Console.WriteLine(content.Result.ToString());
-
                 
                 var citys = JsonConvert.DeserializeObject<List<AddressByState>>(content.Result);
                 
-                /*var filtered = new List<AddressByState>();
+                /*
+                 * Primeira lista, apenas as cidades,
+                 * Segunda lista informações completas;
+                 * */
+
+                 var filtered = new List<County>();
                 if (citys.Count > 0)
                     foreach (var city in citys)
-                    {
-
-                        if (Convert.ToString(city.municipio.microrregiao.mesorregiao.UF.id) == request)
-                        {
-                            filtered.Add(city);
-                        } 
+                    {                                          
+                            var county = new County();
+                                county.id = city.municipio.id;
+                                county.nome = city.municipio.nome;
+                            filtered.Add(county);
+                         
                     }
-                    Console.WriteLine(filtered.ToString());
-                    Console.WriteLine(filtered.ToString());                        
-                */
-                    if (response != null && citys.Count > 0)
+
+                var filteredNoRepeat = filtered.GroupBy(county => county.id)    // remover cidades repetidas da lista 
+                                        .Select(g => g.First())
+                                        .ToList();
+
+
+
+                if (response != null && citys.Count > 0)
                     {
-                        return new ResponseLocalizationFilter()
-                        {
+                        return new ResponseLocalizationAddressByState()
+                        {                            
+                            CountyByState = filteredNoRepeat,
                             AddressByState = citys,
                             Status = 200,
                             IsReturned = true
@@ -98,7 +105,7 @@ namespace Application.Service
                     }
                     else
                     {
-                        return new ResponseLocalizationFilter()
+                        return new ResponseLocalizationAddressByState()
                         {
                             IsReturned = false
                         };
@@ -106,7 +113,7 @@ namespace Application.Service
                 }
             catch (Exception ex)
             {
-                Console.WriteLine("[LocalizationService] Exception in GetClientApi!");
+                _logger.Error(ex, $"[LocalizationService] Exception in GetClientApiCity!");
             }
             return null;
 

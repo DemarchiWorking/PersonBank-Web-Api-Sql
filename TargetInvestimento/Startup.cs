@@ -9,7 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Oracle.ManagedDataAccess.Client;
+using Serilog;
 using System.Data;
+using System.IO;
 
 namespace TargetInvestimento
 {
@@ -34,13 +36,23 @@ namespace TargetInvestimento
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TargetInvestimento", Version = "v1" });
             });
 
+            services.AddSingleton((ILogger)new LoggerConfiguration()
+              .MinimumLevel.Debug()
+              .WriteTo.File(Path.Combine("/var/log/ms_target", "ms_target_investimento.log"), rollingInterval: RollingInterval.Day)
+              .WriteTo.Console(Serilog.Events.LogEventLevel.Debug)
+              .CreateLogger());
 
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<ILocalizationService, LocalizationService>();
             services.AddScoped<IPlanService, PlanService>();
+            services.AddScoped<IInvestmentService, InvestmentService>();
+            services.AddScoped<IKpiService, KpiService>();
+
 
             services.AddScoped<IPersonRepository, PersonRepository>();
-            services.AddScoped<IPlanRepository, PlanRepository>();
+            services.AddScoped<IPlanRepository,  PlanRepository>();
+            services.AddScoped<IInvestmentRepository, InvestmentRepository>();
+            services.AddScoped<IKpiRepository, KpiRepository>();
 
 
         }
