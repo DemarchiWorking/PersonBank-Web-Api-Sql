@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Model.Request
 {
-    public class UfRequest
+    public class IdPersonRequest
     {
-        public string idUf { get; set; }
+        public int idPerson { get; set; }
     }
 }

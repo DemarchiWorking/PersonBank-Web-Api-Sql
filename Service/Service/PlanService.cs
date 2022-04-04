@@ -43,7 +43,7 @@ namespace Application.Service
           {
 
               var alreadyExists = _planRepository.AlreadyExists(idUsuario); // verifica se já esta cadastrado em um plano
-              if(alreadyExists == false)
+              if(alreadyExists == true)
                 {
                     return new ResponseConfirmVip()
                     {

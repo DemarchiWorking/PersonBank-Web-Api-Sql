@@ -92,7 +92,7 @@ namespace TargetInvestimento.Controllers
         {
             try
             {
-                var response = await _localizationService.GetClientApiCity("https://servicodados.ibge.gov.br/api/v1/", ufRequest.idUf, "localidades/estados/{request}/distritos/");
+                var response = await _localizationService.GetClientApiCity("https://servicodados.ibge.gov.br/api/v1/", Convert.ToString(ufRequest.idUf), "localidades/estados/{request}/distritos/");
 
                 if (response?.IsReturned == true)
                 {

@@ -1,4 +1,5 @@
 ﻿using Application.Service.Interfaces;
+using Domain.Model.Dao;
 using Domain.Model.Request;
 using Domain.Model.Response;
 using Microsoft.AspNetCore.Http;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 namespace TargetInvestimento.Controllers
 {
     [Route("investment")]
-    [ApiController]    
+    [ApiController]
     public class InvestmentController : ControllerBase
     {
         private readonly ILogger _logger;
@@ -63,7 +64,7 @@ namespace TargetInvestimento.Controllers
                 {
                     return Ok(new ResponsePerson()
                     {
-                        IsReturned = false,  
+                        IsReturned = false,
                         Status = 400
                     });
                 }
@@ -134,6 +135,8 @@ namespace TargetInvestimento.Controllers
               });
 
         }
+
+
 
     }
 }

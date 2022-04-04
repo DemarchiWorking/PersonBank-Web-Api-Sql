@@ -1,4 +1,5 @@
 ﻿using Application.Service.Interfaces;
+using Domain.Model.Request;
 using Domain.Model.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,10 +28,6 @@ namespace TargetInvestimento.Controllers
         }
 
         
-        /// <summary>
-        /// Endpoint responsável por retornar planos.
-        /// </summary>
-        /// <returns>Retorna lista de planos.</returns>
         [HttpGet("plans")]
         [ProducesResponseType(typeof(ResponsePlan), 200)]
         [ProducesResponseType(typeof(ResponsePlan), 404)]
@@ -86,10 +83,10 @@ namespace TargetInvestimento.Controllers
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
-        public ActionResult<ResponseConfirmVip> ConfirmVipPlan(int idUsuario)
+        public ActionResult<ResponseConfirmVip> ConfirmVipPlan([FromBody] IdPersonRequest idPersonRequest)
         {
             try { 
-                var response = _planService.ConfirmVipPlan(idUsuario);
+                var response = _planService.ConfirmVipPlan(idPersonRequest.idPerson);
 
                 if (response?.IsReturned == true)
                 {

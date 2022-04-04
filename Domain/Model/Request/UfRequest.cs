@@ -8,6 +8,6 @@ namespace Domain.Model.Request
 {
     public class UfRequest
     {
-        public string idUf { get; set; }
+        public int idUf { get; set; }
     }
 }

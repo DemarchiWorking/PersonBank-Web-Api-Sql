@@ -8,7 +8,7 @@ namespace Application.Service.Interfaces
     {
         Response PostPhysicalPerson(PhysicalPersonRequest physicalPersonRequest);
         ResponseAddressPerson GetAddressById(int idPerson);
-        Response PutAddressById(AddressPersonReturn addressPersonReturn);
+        ResponsePutAddress PutAddressById(AddressPersonReturn addressPersonReturn);
 
     }
 }

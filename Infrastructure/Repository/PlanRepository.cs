@@ -146,10 +146,10 @@ namespace Infrastructure.Repository
 
                 if(result.AsList().Count == 0)
                 {
-                    return true;
+                    return false;
                 }if (result.AsList().Count > 0)
                 {
-                    return false;
+                    return true;
                 }else
                 {
                 return false;

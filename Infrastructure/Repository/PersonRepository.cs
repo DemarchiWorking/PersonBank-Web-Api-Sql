@@ -138,7 +138,7 @@ namespace Infrastructure.Repository
             }
 
 
-        public Response PutAddressById(AddressPersonReturn addressPersonReturn)
+        public ResponsePutAddress PutAddressById(AddressPersonReturn addressPersonReturn)
         {
             try
             {
@@ -158,16 +158,16 @@ namespace Infrastructure.Repository
 
                 if (result != 0)
                 {
-                    return new Response()
+                    return new ResponsePutAddress()
                     {
-                        Registered = true
+                        IsReturned = true
                     };
                 }
                 else
                 {
-                    return new Response()
+                    return new ResponsePutAddress()
                     {
-                        Registered = false
+                        IsReturned = false
                     };
                 }
             }
@@ -176,9 +176,9 @@ namespace Infrastructure.Repository
                 _logger.Error(ex, $"[PersonRepository] Exception in PutAddressById!");
             }
 
-            return new Response()
+            return new ResponsePutAddress()
             {
-                Registered = false
+                IsReturned = false
             };
             
         }

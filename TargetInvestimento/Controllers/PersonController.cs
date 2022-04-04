@@ -104,15 +104,15 @@ namespace TargetInvestimento.Controllers
         /// Endpoint responsável por retornar endereços pelo id.
         /// </summary>
         /// <returns>Retorna endereço.</returns>
-        [HttpGet("search-address-by-id/{idPerson}")]
-        [ProducesResponseType(typeof(ResponsePerson), 200)]
-        [ProducesResponseType(typeof(ResponsePerson), 404)]
-        [ProducesResponseType(typeof(ResponsePerson), 500)]
-        public ActionResult<AddressPersonReturn> GetAddressById([FromRoute]int idPerson)
+        [HttpGet("search-address-by-id")]
+        [ProducesResponseType(typeof(AddressPersonReturn), 200)]
+        [ProducesResponseType(typeof(AddressPersonReturn), 404)]
+        [ProducesResponseType(typeof(AddressPersonReturn), 500)]
+        public ActionResult<AddressPersonReturn> GetAddressById([FromBody] IdPersonRequest idPersonRequest)
         {
             try
             {
-                var response = _personService.GetAddressById(idPerson);
+                var response = _personService.GetAddressById(idPersonRequest.idPerson);
 
                 if (response?.IsReturned == true)
                 {
@@ -157,34 +157,37 @@ namespace TargetInvestimento.Controllers
 
 
         [HttpPut("change-address-by-id")]
-        [ProducesResponseType(typeof(AddressPersonReturn), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(AddressPersonReturn), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(AddressPersonReturn), StatusCodes.Status500InternalServerError)]
-        public ActionResult<Response> PutAddressById(AddressPersonReturn addressPersonReturn)
+        [ProducesResponseType(typeof(ResponsePutAddress), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ResponsePutAddress), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ResponsePutAddress), StatusCodes.Status500InternalServerError)]
+        public ActionResult<ResponsePutAddress> PutAddressById(AddressPersonReturn addressPersonReturn)
         {
             try
             {
                 var response = _personService.PutAddressById(addressPersonReturn);
 
-                if (response?.Registered == true)
+                if (response?.IsReturned == true)
                 {
-                    return Ok(new Response()
+                    return Ok(new ResponsePutAddress()
                     {
                         Title = "Endereço alterado com sucesso!",
-                        Status = 200
+                        Status = 200,
+                        IsReturned = response.IsReturned
+
                     });
                 }
-                if (response?.Registered == false)
+                if (response?.IsReturned == false)
                 {
-                    return BadRequest(new Response()
+                    return BadRequest(new ResponsePutAddress()
                     {
                         Title = "Não foi possivel alterar endereço!",
-                        Status = 400
+                        Status = 400,
+                        IsReturned = response.IsReturned
                     });
                 }
                 else
                 {
-                    return BadRequest(new Response()
+                    return BadRequest(new ResponsePutAddress()
                     {
                         Status = 400
                     });

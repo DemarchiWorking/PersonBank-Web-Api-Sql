@@ -62,7 +62,7 @@ namespace Application.Service
             return null;
         }
 
-        public Response PutAddressById(AddressPersonReturn addressPersonReturn)
+        public ResponsePutAddress PutAddressById(AddressPersonReturn addressPersonReturn)
         {
             try
             {

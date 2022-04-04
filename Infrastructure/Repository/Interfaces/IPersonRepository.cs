@@ -14,7 +14,7 @@ namespace Infrastructure.Repository.Interfaces
         Response PostPhysicalPerson(PhysicalPersonRequest physicalPersonRequest, bool vipPlan);
 
         ResponseAddressPerson GetAddressById(int id);
-        Response PutAddressById(AddressPersonReturn addressPersonReturn);
+        ResponsePutAddress PutAddressById(AddressPersonReturn addressPersonReturn);
 
     }
 }
