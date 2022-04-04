@@ -15,34 +15,6 @@ CREATE TABLE [dbo].[PHYSICAL_PERSON] (
     ALTER TABLE PHYSICAL_PERSON
 ADD CONSTRAINT PHYSICAL_PERSON_PK PRIMARY KEY (ID_PERSON)
 
-
-INSERT INTO PHYSICAL_PERSON(
-                       FULL_NAME
-                       , BIRTH_DATE
-                       , CPF
-                       , STREET_ADDRESS
-                       , SUBURB
-                       , ZIP_CODE
-                       , CITY
-                       , STATE
-                       , ADDITIONAL_INFORMATION
-                       , MONTHLY_INCOME
-                       , CREATED_AT)
-                     VALUES
-                     (
-                        'Andre Aquino'
-                        , '2022-01-01T19:38:18.680Z'
-                        , '12849989754'
-                        , 'RUA Lp'
-                        , 'SUBURB '
-                        , '26700000'
-                        , 'Angra dos Reis'
-                        , 'tt'
-                        , 'tt'
-                        , 8900
-                        , (SELECT CURRENT_TIMESTAMP)  
-);
-
 SELECT * FROM PHYSICAL_PERSON;
 
 CREATE TABLE [dbo].[PLANS] (
