@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "78149c3b-2d43-49ab-a62b-619bf610e90d",
+		"name": "TargetInvestimentos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET ​/investment​/filter-by-date-register",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"initialDate\": \"2022-04-02T18:00:00.989Z\",\r\n  \"finalDate\": \"2022-06-06T18:05:52.989Z\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44355/investment/filter-by-date-register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44355",
+					"path": [
+						"investment",
+						"filter-by-date-register"
+					]
+				},
+				"description": "Add Post"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /investment/filter-by-income",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n    \"monthlyIncomeFilter\": 6000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44355/investment/filter-by-income",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44355",
+					"path": [
+						"investment",
+						"filter-by-income"
+					]
+				},
+				"description": "Add Post"
+			},
+			"response": []
+		},
+		{
+			"name": "GET kpi/kpi/membership-index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44355/kpi/membership-index",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44355",
+					"path": [
+						"kpi",
+						"membership-index"
+					]
+				},
+				"description": "delete"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /localization/states",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44355/localization/states",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44355",
+					"path": [
+						"localization",
+						"states"
+					]
+				},
+				"description": "Get"
+			},
+			"response": []
+		},
+		{
+			"name": "​GET /localization​/city",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idUf\": 33\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44355/localization/city",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44355",
+					"path": [
+						"localization",
+						"city"
+					]
+				},
+				"description": "delete"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /person/create-person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fullName\": \"Jose Ribas\",\r\n  \"birthDate\": \"1991-07-08T12:08:45.530Z\",\r\n  \"cpf\": \"07917078655\",\r\n  \"address\": {\r\n    \"street_Address\": \"RUA street_Address\",\r\n    \"suburb\": \"SUBURB TEST SUBURB\",\r\n    \"zipCode\": \"26700000\",\r\n    \"city\": \"City Ct\",\r\n    \"state\": \"State St\",\r\n    \"additionalInformation\": \"Add Inf ADD\"\r\n  },\r\n  \"monthlyIncome\": 4200\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44355/person/create-person",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44355",
+					"path": [
+						"person",
+						"create-person"
+					]
+				},
+				"description": "Add Post"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /person/search-address-by-id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idPerson\": 1\r\n}       ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44355/person/search-address-by-id",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44355",
+					"path": [
+						"person",
+						"search-address-by-id"
+					]
+				},
+				"description": "delete"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /person/change-address-by-id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id_Person\": 2,\r\n  \"street_Address\": \"test\",\r\n  \"suburb\": \"test\",\r\n  \"zip_Code\": \"test\",\r\n  \"city\": \"test\",\r\n  \"state\": \"test\",\r\n  \"additional_Information\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44355/person/change-address-by-id",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44355",
+					"path": [
+						"person",
+						"change-address-by-id"
+					]
+				},
+				"description": "Add Post"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /plan/plans",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44355/plan/plans",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44355",
+					"path": [
+						"plan",
+						"plans"
+					]
+				},
+				"description": "delete"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /plan/confirm-plan/vip",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"idPerson\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44355/plan/confirm-plan/vip",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44355",
+					"path": [
+						"plan",
+						"confirm-plan",
+						"vip"
+					]
+				},
+				"description": "Add Post"
+			},
+			"response": []
+		}
+	]
+}
