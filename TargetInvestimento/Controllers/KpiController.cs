@@ -44,7 +44,7 @@ namespace TargetInvestimento.Controllers
                 {
                     return Ok(new ResponsePlansPerson()
                     {
-                        Title = $@"Dados carregados com sucesso! MissingJoinVip:'{response.VipPlansNumber}'/'{response.NumberPersons}'!",
+                        Title = $@"Dados carregados com sucesso! MissingJoinVip:'{response.MissingJoinVipCount}'/'{response.NumberPersons}'!",
                         Status = 200,
                         IsReturned = true,
                         MissingJoinVip = response.MissingJoinVip,

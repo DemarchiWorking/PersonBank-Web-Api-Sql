@@ -104,6 +104,7 @@ namespace Infrastructure.Repository
                     return new ResponsePlansPerson()
                     {
                         MissingJoinVip = missingJoinVipListResponse,
+                        MissingJoinVipCount = missingJoinVipListResponse.Count,
                         PersonsPlan = personListResponse,
                         VipPlansNumber = vipPlansNumber,
                         NumberPersons = NumberPersons,
