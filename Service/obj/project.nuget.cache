@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Gn6boj+Wnqs0j3yElmix2sNz5JgKSqeyuOSCrvUBUVqVamOAxbFNO0jJe9sAYqBUAUAJHdY5QzKYRtkL61EuvQ==",
+  "dgSpecHash": "cXJjgeczuMFDY/ycUhTOwFnXoWFiRBm+pcMssHS7x1XFh8k7F9uYBzhkkm+4gyALb1gxM4/2mdeDBB40tijQyA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestimento\\Service\\Application.csproj",
+  "projectFilePath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestment\\PersonBank-Web-Api-Sql\\Service\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\AntonioEduardo\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\AntonioEduardo\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.1\\microsoft.extensions.configuration.6.0.1.nupkg.sha512",

@@ -2003,11 +2003,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestimento\\TargetInvestimento\\TargetInvestimento.csproj",
+      "projectUniqueName": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestment\\PersonBank-Web-Api-Sql\\TargetInvestimento\\TargetInvestimento.csproj",
       "projectName": "TargetInvestimento",
-      "projectPath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestimento\\TargetInvestimento\\TargetInvestimento.csproj",
+      "projectPath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestment\\PersonBank-Web-Api-Sql\\TargetInvestimento\\TargetInvestimento.csproj",
       "packagesPath": "C:\\Users\\AntonioEduardo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestimento\\TargetInvestimento\\obj\\",
+      "outputPath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestment\\PersonBank-Web-Api-Sql\\TargetInvestimento\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -2027,11 +2027,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestimento\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestimento\\Domain\\Domain.csproj"
+            "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestment\\PersonBank-Web-Api-Sql\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestment\\PersonBank-Web-Api-Sql\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestimento\\Service\\Application.csproj": {
-              "projectPath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestimento\\Service\\Application.csproj"
+            "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestment\\PersonBank-Web-Api-Sql\\Service\\Application.csproj": {
+              "projectPath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestment\\PersonBank-Web-Api-Sql\\Service\\Application.csproj"
             }
           }
         }

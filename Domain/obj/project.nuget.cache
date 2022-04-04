@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M3eV2xtZcEt7Lr+tKFtdVBM+X2pic7FxQseFw1HDBHJJSVlaSCQxK8bEsQqkF51HtxhD9UIiRIWvm8zdwODn0A==",
+  "dgSpecHash": "FfsDMrbZaOC/g3z4U+qGboj/sZttxC9UvJFblZUjH3g62tABR26qvCtcQL7Y9Cqv/Ic55/Dv3J/7nTDPYN6x4Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestimento\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\AntonioEduardo\\source\\repos\\TargetInvestment\\PersonBank-Web-Api-Sql\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\AntonioEduardo\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.1\\microsoft.extensions.configuration.6.0.1.nupkg.sha512",
     "C:\\Users\\AntonioEduardo\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace TargetInvestimento.Controllers
 {
     [Route("kpi")]
-    [ApiController]    
+    [ApiController]
     public class KpiController : ControllerBase
     {
         private readonly IKpiService _kpiService;
@@ -38,18 +38,22 @@ namespace TargetInvestimento.Controllers
         {
             try
             {
-            var response = _kpiService.GetInformationPlanVip();
+                var response = _kpiService.GetInformationPlanVip();
 
                 if (response?.IsReturned == true)
                 {
                     return Ok(new ResponsePlansPerson()
                     {
-                        PersonsPlan = response.PersonsPlan,
-                        NumberPersons = response.NumberPersons,
-                        VipPlansNumber = response.VipPlansNumber,                        
+                        Title = $@"Dados carregados com sucesso! MissingJoinVip:'{response.VipPlansNumber}'/'{response.NumberPersons}'!",
                         Status = 200,
                         IsReturned = true,
-                        Title = "Lista de pessoas localizada com sucesso!"
+                        MissingJoinVip = response.MissingJoinVip,
+                        PersonsPlan = response.PersonsPlan,
+                        NumberPersons = response.NumberPersons,
+                        VipPlansNumber = response.VipPlansNumber,
+                        MissingJoinVipCount = response.MissingJoinVip.Count
+
+
                     });
                 }
                 if (response?.IsReturned == false)
@@ -58,7 +62,7 @@ namespace TargetInvestimento.Controllers
                     {
                         IsReturned = false,
                         Status = 400,
-                        Title = "Não foi possivel localizar a lista de pessoas!"
+                        Title = "Não foi possivel carregar os dados!"
                     });
                 }
 
@@ -66,11 +70,11 @@ namespace TargetInvestimento.Controllers
                 {
                     return Ok(new ResponsePlansPerson()
                     {
-                        IsReturned = false,  
+                        IsReturned = false,
                         Status = 400
                     });
-          
-        }
+
+                }
             }
             catch (Exception ex)
             {
@@ -81,7 +85,7 @@ namespace TargetInvestimento.Controllers
             {
                 Status = 500,
                 Title = "Erro interno no servidor!"
-            }); 
+            });
         }
 
     }

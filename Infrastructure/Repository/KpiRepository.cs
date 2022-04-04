@@ -24,8 +24,8 @@ namespace Infrastructure.Repository
                 IConfiguration configuration
             )
         {
-                _logger = logger;
-                _connectionString = configuration.GetConnectionString("DatabaseConnectionString");
+            _logger = logger;
+            _connectionString = configuration.GetConnectionString("DatabaseConnectionString");
         }
 
         public ResponsePlansPerson GetInformationPlanVip()
@@ -58,10 +58,12 @@ namespace Infrastructure.Repository
 
                 var result = connection.Query<dynamic>(sql);
                 List<PlanPhysicalPersonReturn> personListResponse = new List<PlanPhysicalPersonReturn>();
+                List<PlanPhysicalPersonReturn> missingJoinVipListResponse = new List<PlanPhysicalPersonReturn>();
                 int vipPlansNumber = 0;
                 int NumberPersons = 0;
 
-                if (result != null) {
+                if (result != null)
+                {
 
                     foreach (var item in result)
                     {
@@ -77,7 +79,7 @@ namespace Infrastructure.Repository
                             City = item.CITY,
                             State = item.STATE,
                             AdditionalInformation = item.ADDITIONAL_INFORMATION,
-                            MonthlyIncome = (item.MONTHLY_INCOME) == "" ? null: Convert.ToDouble(item.MONTHLY_INCOME),
+                            MonthlyIncome = (item.MONTHLY_INCOME) == "" ? null : Convert.ToDouble(item.MONTHLY_INCOME),
                             CreatedAt = item.CREATED_AT,
                             LastPlanChange = item.UPDATED_AT,
                             IdPlan = item.ID_PLAN,
@@ -92,11 +94,16 @@ namespace Infrastructure.Repository
                         {
                             vipPlansNumber++;
                         }
+                        if (item.MonthlyIncome >= 6500 && item.IdPlan == null)
+                        {
+                            missingJoinVipListResponse.Add(item);
+                        }
 
                     }
 
                     return new ResponsePlansPerson()
                     {
+                        MissingJoinVip = missingJoinVipListResponse,
                         PersonsPlan = personListResponse,
                         VipPlansNumber = vipPlansNumber,
                         NumberPersons = NumberPersons,
